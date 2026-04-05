@@ -15,6 +15,8 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 - **Validation**: Zod (`zod/v4`), `drizzle-zod`
 - **API codegen**: Orval (from OpenAPI spec)
 - **Build**: esbuild (CJS bundle)
+- **Frontend**: React + Vite + Tailwind CSS + shadcn/ui + Recharts
+- **State**: Zustand (role store), TanStack React Query (server state)
 
 ## Key Commands
 
@@ -25,3 +27,23 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 - `pnpm --filter @workspace/api-server run dev` — run API server locally
 
 See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details.
+
+## Artifacts
+
+### Financial Dashboard (`/`)
+
+A personal finance tracker built with React + Vite. Features:
+- Dashboard overview with summary cards, balance trend chart, spending by category
+- Transactions list with search, filter (by type/category), and sort
+- Insights page with monthly comparison chart, spending breakdown, savings rate
+- Role-based UI: toggle between Viewer (read-only) and Admin (can add/edit/delete)
+- Dark mode support via next-themes
+- Role and theme persisted in localStorage
+
+### API Server (`/api`)
+
+Express 5 backend serving the finance dashboard data.
+
+## Database Schema
+
+- `transactions` — financial transactions with description, amount, type (income/expense), category, date
